@@ -92,3 +92,29 @@ elif recept == "dividir":
   
 else:
   print("Operação inválida.")
+
+#-------------------------------------
+
+import random
+def gerarnumeros():
+    return random.randint(1,60)
+
+def gerar_jogo():
+    numeroSort = []
+    while len(numeroSort) < 6:
+        numero = gerarnumeros()
+        if numero not in numeroSort:
+            numeroSort.append(numero)
+    return numeroSort
+
+def main():
+    jogos = []
+    quantos_jogos = int(input("Quantos jogos voce quer: "))
+
+    for i in range (quantos_jogos):
+        jogo = gerar_jogo()
+        jogos.append(jogo)
+    
+    for idx, jogo in enumerate(jogos, start=1): 
+        print(f"Jogo {idx}: {sorted(jogo)}") 
+if __name__ == "__main__": main()
