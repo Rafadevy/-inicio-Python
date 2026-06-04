@@ -118,3 +118,42 @@ def main():
     for idx, jogo in enumerate(jogos, start=1): 
         print(f"Jogo {idx}: {sorted(jogo)}") 
 if __name__ == "__main__": main()
+
+
+*----------------------------
+
+num = [] # Lista para armazenar os números digitados
+par = [] # Lista para armazenar os números pares
+impar = [] # Lista para armazenar os números ímpares
+soma = 0 # Variável para armazenar a soma dos números
+for i in range(5):
+    try:# Tratamento de exceção para garantir que o usuário digite um número válido
+        n = int(input(f"Digite cinco números {i+1}º: "))
+    except ValueError:# Caso o usuário digite algo que não seja um número, o programa irá informar e solicitar novamente
+        print("Por favor, digite um número válido.")
+        continue
+    num.append(n)
+    soma += n
+    if n  % 2 == 0:
+        par.append(n)
+    else:
+        impar.append(n)
+if num:# Verificação para evitar divisão por zero caso o usuário não digite nenhum número
+    media = soma / len(num)
+    maior = num[0]
+    menor = num[0]
+
+
+    for n in num:
+        if n > maior:
+            maior = n
+        if n < menor:
+            menor = n
+
+    print(f"Números pares: {par}")
+    print(f"Números ímpares: {impar}")
+    print(f"Soma dos números: {soma}")
+    print(f"Média dos números: {media}")
+    print(f"Maior número: {maior}")
+    print(f"Menor número: {menor}")
+    
